@@ -1,22 +1,22 @@
 clc, clear
 disp('==================================================');
-disp('开始执行差异追踪脚�?(生成对比 CSV 日志)...');
+disp('开始执行差异追踪脚本 (生成对比 CSV 日志)...');
 disp('==================================================');
 
 T_test = 200; 
 random_seed = 42;
 
-disp('[1/2] 正在运行 fsolve 方法并写�?log_fsolve.csv ...');
+disp('[1/2] 正在运行 fsolve 方法并写入 log_fsolve.csv ...');
 run_simulation_and_log(false, random_seed, 'log_fsolve.csv', T_test);
 
-disp('[2/2] 正在运行 my_bisection 方法并写�?log_bisection.csv ...');
+disp('[2/2] 正在运行 my_bisection 方法并写入 log_bisection.csv ...');
 run_simulation_and_log(true, random_seed, 'log_bisection.csv', T_test);
 
 disp('==================================================');
 disp('日志生成完毕！请在当前目录下寻找:');
 disp('1. log_fsolve.csv');
 disp('2. log_bisection.csv');
-disp('建议使用 Excel 打开并并排对比，寻找第一�?[Final_Mode] �?[p_0] 出现差异的行�?);
+disp('建议使用 Excel 打开并并排对比，寻找第一次 [Final_Mode] 或 [p_0] 出现差异的行。');
 disp('==================================================');
 
 

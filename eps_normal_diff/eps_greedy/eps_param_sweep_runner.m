@@ -1,4 +1,4 @@
-﻿function sweep = eps_param_sweep_runner(param_name, values, opts)
+function sweep = eps_param_sweep_runner(param_name, values, opts)
 % EPS_PARAM_SWEEP_RUNNER
 % Single-variable sweep for eps_greedy_logco_basic.
 

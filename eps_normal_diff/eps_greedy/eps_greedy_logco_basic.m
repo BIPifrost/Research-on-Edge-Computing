@@ -1,4 +1,4 @@
-﻿function result = eps_greedy_logco_basic(cfg)
+function result = eps_greedy_logco_basic(cfg)
 % EPS_GREEDY_LOGCO_BASIC
 % Standalone configurable version for eps-greedy LODCO simulation.
 % This file does NOT modify eps_greedy_logco_origin.m.

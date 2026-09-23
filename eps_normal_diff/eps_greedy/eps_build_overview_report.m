@@ -1,4 +1,4 @@
-﻿function overview = eps_build_overview_report(output_dir)
+function overview = eps_build_overview_report(output_dir)
 % EPS_BUILD_OVERVIEW_REPORT
 % Build one dashboard from all eps_*.mat sweep outputs.
 

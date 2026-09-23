@@ -51,7 +51,7 @@ theta = E_max_hat + V * phi / E_min;
 for r_idx = 1:num_rho
     rho = rho_list(r_idx);
     disp(['==================================================']);
-    disp(['====> 开始仿�? 当前 rho = ', num2str(rho), ' (', num2str(r_idx), '/', num2str(num_rho), ') <====']);
+    disp(['====> 开始仿真：当前 rho = ', num2str(rho), ' (', num2str(r_idx), '/', num2str(num_rho), ') <====']);
 
     B = zeros(T, N);                   
     B_hat = zeros(T, N);               
@@ -310,7 +310,7 @@ for r_idx = 1:num_rho
 end
 
 disp(' ');
-disp('================ 仿真结束，正在绘制对比视�?================');
+disp('================ 仿真结束，正在绘制对比视图 ================');
 
 x_labels = cell(1, num_rho);
 for k = 1:num_rho

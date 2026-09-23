@@ -46,7 +46,7 @@ simulation_time_V = zeros(num_V, 1);
 for v_idx = 1:num_V
     V = V_list(v_idx);
     fprintf('\n======================================================\n');
-    fprintf('正在进行仿真测试，当前控制参�?V = %e ...\n', V);
+    fprintf('正在进行仿真测试，当前控制参数 V = %e ...\n', V);
     
     tic;
 
@@ -306,7 +306,7 @@ for v_idx = 1:num_V
     end
     
     simulation_time_V(v_idx) = toc;
-    fprintf('测试完毕！V=
+    fprintf('测试完毕！V=%e，耗时 %.2f 秒。\n', V, simulation_time_V(v_idx));
     
     total_valid_requests = sum(chosen_mode(:) ~= 4);
     
@@ -363,7 +363,7 @@ for i = 1:num_V
 end
 
 disp(' ');
-disp('================ fsolve 求解误差分析 (全过程汇�? ================');
+disp('================ fsolve 求解误差分析 (全过程汇总) ================');
 disp(['p_E_min 误差方差: ', num2str(var(err_fsolve_pEmin, 'omitnan')), '  | 平均误差: ', num2str(mean(err_fsolve_pEmin, 'omitnan'))]);
 disp(['p_E_max 误差方差: ', num2str(var(err_fsolve_pEmax, 'omitnan')), '  | 平均误差: ', num2str(mean(err_fsolve_pEmax, 'omitnan'))]);
 disp(['p_0     误差方差: ', num2str(var(err_fsolve_p0, 'omitnan')),    '  | 平均误差: ', num2str(mean(err_fsolve_p0, 'omitnan'))]);

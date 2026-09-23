@@ -48,7 +48,7 @@ E_max_hat = min(max(k * W * (f_max)^2, p_tx_max * tau), E_max);
 for p_idx = 1:num_phi
     phi = phi_list(p_idx);
     disp(['==================================================']);
-    disp(['====> 开始仿�? 当前 phi = ', num2str(phi), ' (', num2str(p_idx), '/', num2str(num_phi), ') <====']);
+    disp(['====> 开始仿真：当前 phi = ', num2str(phi), ' (', num2str(p_idx), '/', num2str(num_phi), ') <====']);
     
     theta = E_max_hat + V * phi / E_min;
 
@@ -313,7 +313,7 @@ for p_idx = 1:num_phi
 end
 
 disp(' ');
-disp('================ 仿真结束，正在绘制对比视�?================');
+disp('================ 仿真结束，正在绘制对比视图 ================');
 
 legend_strs = cell(1, num_phi);
 for k = 1:num_phi

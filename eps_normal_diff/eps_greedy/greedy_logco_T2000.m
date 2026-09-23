@@ -6,21 +6,21 @@ end
 opt = optimset('Display', 'none');
 
 %% basic parameter settings (had better not change those paras)
-k = 1e-28;                % CPU ?effective switched capacitance (a constant decided by the chip architecture)
+k = 1e-28;                % CPU effective switched capacitance (a constant decided by the chip architecture)
 tau = 0.002;              % the length of time slot (in second)
 phi = 0.002;              % the cost of task dropping (in second)
 omega = 1e6;              % MEC() the bandwidth of MEC server (in Hz)
 sigma = 1e-13;            % the noise power of the receiver (in W)
-p_tx_max = 1;             % MEC?the maximum transmit power of mobile device (in W)
-f_max = 1.5e9;            % CPU 1.5 GHz?.5e9the maximum CPU-cycle frequency of mobile device (in Hz)
+p_tx_max = 1;             % the maximum transmit power of mobile device (in W)
+f_max = 1.5e9;            % the maximum CPU-cycle frequency of mobile device (1.5 GHz, in Hz)
 E_max = 0.002;            % the maximum amout of battery output energy (in J)
 L = 1000;                 % the input size of the computation task (in bit)
-X = 737.5;                % CPU?the number of CPU cycles needed on processing one bit of task
-W = L * X;                % PU?the number of CPU cycles needed on processing one task
+X = 737.5;                % the number of CPU cycles needed on processing one bit of task
+W = L * X;                % the number of CPU cycles needed on processing one task
 E_H_max = 48e-6;          % the upper bound of the energy arrive at the mobile device (in J)
 p_H = E_H_max / (2*tau);  % (2) the average Energy Harvesting (EH) power (in W)
-g0 = power(10, -4);       % (? the path-loss constant
-d0 = 1;                   % (??the relative distance between each mobile device and each MEC server
+g0 = power(10, -4);       % the path-loss constant
+d0 = 1;                   % the relative distance between each mobile device and each MEC server
 
 %% parameter control
 N = 10;                   % the number of mobile devices
@@ -32,8 +32,8 @@ E_min = 0.02e-3;          % the minimum amout of battery output energy (in J)
 V = 1e-5;                 % the weight of penalty (the control parameter introduced by Lyapunov Optimization)
 rho = 0.6;                % the probability that the computation task is requested
 max_connects = 4;         % the maximum number of processible mobile devices for each MEC server ($ \frac{f_s^{max} \tau}{L X} $)
-min_distance = 10;        % EC?the minimum distance from mobile device to MEC server
-max_distance = 50;        % EC?the maximum distance from mobile device to MEC server
+min_distance = 10;        % the minimum distance from mobile device to MEC server
+max_distance = 50;        % the maximum distance from mobile device to MEC server
 
 % the lower bound of perturbation parameter
 E_max_hat = min(max(k * W * (f_max)^2, p_tx_max * tau), E_max);
@@ -63,7 +63,7 @@ while t <= T
     
     %% allocate storage for mode-chosen
     device_server_pairs = [];                         % each column represents i, j, J_s^{\star}(i, j), respectively
-    remained_connects = max_connects * ones(M, 1);    % EC?the available connections of MEC servers
+    remained_connects = max_connects * ones(M, 1);    % the available connections of MEC servers
     J_m = zeros(N, 1); J_s = zeros(N, M);             % the matrices for J_m and J_s values
     p_mat = zeros(N, M);                              % the matrix for transmit power
     server_cost_mat = zeros(N, M);                    % the matrix for MEC server execution cost

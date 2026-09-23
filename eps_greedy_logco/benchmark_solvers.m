@@ -1,6 +1,6 @@
 clc; clear; close all;
 disp('==================================================');
-disp('开始严格基准测�? 原版 fsolve vs 优化�?bisection');
+disp('开始严格基准测试：原版 fsolve vs 优化版 bisection');
 disp('==================================================');
 
 T_test = 2000;
@@ -8,24 +8,24 @@ global_seed = 42;
 
 disp(['[1/2] 正在运行原版 fsolve 方法 (T=', num2str(T_test), '), 请耐心等待...']);
 [mode_fsolve, time_fsolve] = run_simulation(false, T_test, global_seed);
-disp(['原版运行完毕，耗时: ', num2str(time_fsolve), ' �?]);
+disp(['原版运行完毕，耗时: ', num2str(time_fsolve), ' 秒']);
 
 disp('--------------------------------------------------');
-disp(['[2/2] 正在运行优化�?my_bisection 方法 (T=', num2str(T_test), ')...']);
+disp(['[2/2] 正在运行优化版 my_bisection 方法 (T=', num2str(T_test), ')...']);
 [mode_bisect, time_bisect] = run_simulation(true, T_test, global_seed);
-disp(['优化版运行完毕，耗时: ', num2str(time_bisect), ' �?]);
+disp(['优化版运行完毕，耗时: ', num2str(time_bisect), ' 秒']);
 
 disp('==================================================');
-disp('最终对比报�?');
-disp(['1. 速度提升倍数: ', num2str(time_fsolve / time_bisect), ' �?]);
+disp('最终对比报告');
+disp(['1. 速度提升倍数: ', num2str(time_fsolve / time_bisect), ' 倍']);
 
 task_generated_idx = (mode_fsolve ~= 4); 
 total_decisions = sum(task_generated_idx, 'all');
 diff_count = sum(mode_fsolve(task_generated_idx) ~= mode_bisect(task_generated_idx), 'all');
 consistency_rate = 100 * (1 - diff_count / total_decisions);
 
-disp(['2. 总决策次�?(剔除无任�?: ', num2str(total_decisions)]);
-disp(['3. 实际决策不同的数�? ', num2str(diff_count)]);
+disp(['2. 总决策次数 (剔除无任务): ', num2str(total_decisions)]);
+disp(['3. 实际决策不同的数量: ', num2str(diff_count)]);
 disp(['   决策一致率: ', num2str(consistency_rate), ' %']);
 disp('==================================================');
 
@@ -161,8 +161,8 @@ function [chosen_mode, time_cost] = run_simulation(use_bisection, T, global_seed
                     
                     if abs(y_p0(p_0_fsolve_test)) > 1e-4 && abs(y_p0(p_0_bi_test)) < 1e-4
                         disp(['[抓到 Bug!] 时隙 t=', num2str(t), ', 设备 i=', num2str(i)]);
-                        disp([' -> [原版 fsolve] �? ', num2str(p_0_fsolve_test), ' | 误差: ', num2str(y_p0(p_0_fsolve_test))]);
-                        disp([' -> [优化 二分法] �? ', num2str(p_0_bi_test),     ' | 误差: ', num2str(y_p0(p_0_bi_test))]);
+                        disp([' -> [原版 fsolve] 根: ', num2str(p_0_fsolve_test), ' | 误差: ', num2str(y_p0(p_0_fsolve_test))]);
+                        disp([' -> [优化 二分法] 根: ', num2str(p_0_bi_test),     ' | 误差: ', num2str(y_p0(p_0_bi_test))]);
                     end
                     % ==========================================================
 

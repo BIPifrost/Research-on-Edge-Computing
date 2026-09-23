@@ -500,7 +500,7 @@ xlabel('time slot')
 ylabel('average  ratio of chosen modes $\frac{1}{T} \sum_{t=0}^{T-1} \{I_m^t, I_s^t, I_d^t\}$ of the i-th mobile device', 'Interpreter','latex')
 
 disp(' ');
-disp('================ 二分�?求解误差分析 ================');
+disp('================ 二分法求解误差分析 ================');
 disp(['p_E_min 误差方差: ', num2str(var(err_bi_pEmin, 'omitnan')), '  | 平均误差: ', num2str(mean(err_bi_pEmin, 'omitnan'))]);
 disp(['p_E_max 误差方差: ', num2str(var(err_bi_pEmax, 'omitnan')), '  | 平均误差: ', num2str(mean(err_bi_pEmax, 'omitnan'))]);
 disp(['p_0     误差方差: ', num2str(var(err_bi_p0, 'omitnan')),    '  | 平均误差: ', num2str(mean(err_bi_p0, 'omitnan'))]);
